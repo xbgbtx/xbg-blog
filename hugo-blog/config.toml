@@ -1,6 +1,6 @@
 title = "xbgbtx"
 
-baseurl = "hugo-blog/"
+baseurl = "/hugo-blog/public/"
 languageCode = "en-us"
 theme = "terminal"
 paginate = 5
