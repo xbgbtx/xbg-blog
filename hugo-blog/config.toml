@@ -1,6 +1,6 @@
 title = "xbgbtx"
 
-baseurl = "https://xbgbtx.github.io/xbg-blog/hugo-blog/"
+baseurl = "https://xbgbtx.github.io/xbg-blog/"
 languageCode = "en-us"
 theme = "terminal"
 paginate = 5
