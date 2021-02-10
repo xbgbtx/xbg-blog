@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xbgbtx</title>
+    <link>https://xbgbtx.github.io/xbg-blog/</link>
+    <description>Recent content on xbgbtx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Feb 2021 13:05:16 +0000</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mod Fibonacci</title>
+      <link>https://xbgbtx.github.io/xbg-blog/posts/my-first-post/</link>
+      <pubDate>Mon, 01 Feb 2021 13:05:16 +0000</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/posts/my-first-post/</guid>
+      <description>Using modulo to create a looping pattern from number sequences such as the Fibonacci numbers can create a cool structure.
+Fibmod  I learned about this idea here:
+  The shape is made by drawing a line and then turning 90 degrees either left or right depending on whether the result of a modulo fib number is odd or even.
+Fibmod  The code can be found here:
+fibmod.cfdg</description>
+    </item>
+    
+  </channel>
+</rss>
