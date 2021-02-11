@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=$(dirname "$0")
+DIR=$(readlink -m $1)
 
 cd $DIR/..
 
@@ -23,7 +23,9 @@ echo "Removing existing files"
 rm -rf public/*
 
 echo "Generating site"
-hugo
+hugo -D
 
 echo "Updating gh-pages branch"
 cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
+
+git push origin gh-pages

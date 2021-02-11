@@ -61,7 +61,7 @@ paginate = 5
 
     [languages.en.params.logo]
       logoText = "xbgbtx"
-      logoHomeLink = "/"
+      logoHomeLink = "https://xbgbtx.github.io/xbg-blog/"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
