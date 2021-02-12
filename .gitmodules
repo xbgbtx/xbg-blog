@@ -10,3 +10,6 @@
 [submodule "themes/ananke"]
 	path = themes/ananke
 	url = https://github.com/budparr/gohugo-theme-ananke.git
+[submodule "static/garble"]
+	path = static/garble
+	url = https://github.com/xbgbtx/garble.git
