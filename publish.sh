@@ -22,6 +22,9 @@ git worktree add -B gh-pages public origin/gh-pages
 echo "Removing existing files"
 rm -rf public/*
 
+echo "Copying project submodules"
+rsync -av --exclude='*.git*' project_submodules/ public
+
 echo "Generating site"
 hugo -D
 
