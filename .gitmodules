@@ -11,5 +11,5 @@
 	path = themes/ananke
 	url = https://github.com/budparr/gohugo-theme-ananke.git
 [submodule "static/garble"]
-	path = static/garble
+	path = project_submodules/garble
 	url = https://github.com/xbgbtx/garble.git
