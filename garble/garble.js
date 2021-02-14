@@ -1,45 +1,169 @@
 let State = {
     AWAIT_INPUT     : 1,
     GARBLING        : 2,
-    DISPLAY_RESULTS : 3
+    DISPLAY_RESULTS : 3,
+    ERROR           : 4
 }
 
 let state;
 
-let langs = [ "en", "ar", "zh", "fr", "de", "it", "pt", "ru", "es" ];
-
 function change_state ( new_state )
 {
+    let hide_divs = () => {
+        hide_div ( "input_div" );
+        hide_div ( "results_output_div" );
+        hide_div ( "garble_output_div" );
+        hide_div ( "error_div" );
+    };
+
     switch ( new_state )
     {
         case State.AWAIT_INPUT :
-            hide_div ( "results_output_div" );
-            hide_div ( "garble_output_div" );
-
+            hide_divs ();
             clear_input ();
             show_div ( "input_div" );
-
             break;
 
         case State.GARBLING :
-            hide_div ( "input_div" );
-            hide_div ( "results_output_div" );
-
+            hide_divs ();
             clear_garble_output ();
             show_div ( "garble_output_div" );
-
             break;
 
         case State.DISPLAY_RESULTS :
-            hide_div ( "input_div" );
-            hide_div ( "garble_output_div" );
-
+            hide_divs ();
             show_div ( "results_output_div" );
+            break;
 
+        case State.ERROR :
+            hide_divs ();
+            show_div ( "error_div" );
             break;
     }
+
     state = new_state;
 }
+
+/****************************************************************************
+ * TEXT GARBLING
+ ***************************************************************************/
+
+class GarbleData
+{
+    constructor ( start_text, langs )
+    {
+        this.start_text = start_text;
+        this.langs = langs;
+
+        this.garbled_text = start_text;
+        this.current_step = 0;
+    }
+
+    garble_complete ()
+    {
+        return this.current_step >= this.langs.length;
+    }
+
+    current_lang ()
+    {
+        return this.langs [ this.current_step ];
+    }
+
+    next_lang ()
+    {
+        return this.langs [ ( this.current_step + 1 ) % this.langs.length ];
+    }
+
+    garble_step ( next_text )
+    {
+        if ( this.garble_complete () ) 
+        {
+            throw "garble_step after garble_complete";
+        }
+
+        this.garbled_text = next_text;
+        this.current_step += 1;
+    }
+}
+
+function garble_text ( text )
+{
+    if ( state != State.AWAIT_INPUT )
+    {
+        return;
+    }
+
+    let langs = [ "en", "ar", "zh", "fr", "de", "it", "pt", "ru", "es" ];
+
+    change_state ( State.GARBLING );
+
+    console.log ( `Garble: ${text}` );
+
+    let garble_data = new GarbleData ( text, langs );
+
+    garble_step ( garble_data, 
+        ( text ) => add_garble_output ( text ),
+        ( text, garbled_text ) => 
+        {
+            set_results_output ( text, garbled_text )
+            change_state ( State.DISPLAY_RESULTS );
+        } );
+}
+
+function garble_step ( garble_data, step_cb, complete_cb )
+{
+    if ( garble_data.garble_complete () )
+    {
+        complete_cb ( garble_data.start_text, garble_data.garbled_text );
+        return;
+    }
+
+    step_cb ( garble_data.garbled_text );
+
+    let next_step = ( translatedText ) => 
+    {
+        garble_data.garble_step ( translatedText );
+        garble_step ( garble_data, step_cb, complete_cb );
+    };
+
+    let error_cb = () => change_state ( State.ERROR );
+
+    translate_text ( garble_data.garbled_text,
+                     garble_data.current_lang (), 
+                     garble_data.next_lang (), 
+                     next_step,
+                     error_cb
+    );
+}
+
+function translate_text ( text, source_lang, target_lang, 
+                          translation_cb, error_cb )
+{
+    fetch ( "https://libretranslate.com/translate",
+    {
+        method : "POST",
+        body : JSON.stringify ({
+            q : text,
+            source : source_lang,
+            target : target_lang
+        }),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then ( response => 
+    {
+        if ( response.status == 200 )
+            return response;
+        else
+            throw "Bad response from API.";
+    })
+    .then ( response => response.json () )
+    .then ( result   => translation_cb ( result.translatedText ) )
+    .catch ( error   => error_cb () );
+}
+
+/****************************************************************************
+ * BROWSER EVENTS
+ ***************************************************************************/
 
 function page_loaded ()
 {
@@ -48,52 +172,26 @@ function page_loaded ()
 
 function do_garble_click ()
 {
-    if ( state == State.AWAIT_INPUT )
-    {
-        let text_in = document.getElementById ( "text_in" ).value;
+    if ( state != State.AWAIT_INPUT )
+        return;
+
+    let text_in = document.getElementById ( "text_in" ).value;
+
+    if ( text_in.length > 0 )
         garble_text ( text_in )
-    }
 }
 
 function do_another_click ()
 {
-    if ( state == State.DISPLAY_RESULTS )
+    if ( state == State.DISPLAY_RESULTS || state == State.ERROR )
     {
         change_state ( State.AWAIT_INPUT );
     }
 }
 
-async function garble_text ( text )
-{
-    if ( state != State.AWAIT_INPUT )
-    {
-        return;
-    }
-
-    change_state ( State.GARBLING );
-
-    console.log ( `Garble: ${text}` );
-
-    let garbled_text = text;
-
-    add_garble_output ( `<em>${garbled_text}</em>` );
-
-    for ( let i = 0; i< langs.length; i++ )
-    {
-        let source = langs [ i ];
-        let target = langs [ (i+1) % langs.length ];
-
-        let response = await translate_text ( garbled_text,source, target);
-        garbled_text = response.translatedText;
-
-        let out = (i==langs.length-1) ? `<b>${garbled_text}</b>` :
-                                              garbled_text;
-        add_garble_output ( out );
-    }
-
-    set_results_output ( text, garbled_text )
-    change_state ( State.DISPLAY_RESULTS );
-}
+/****************************************************************************
+ * DOM MANIPULATION
+ ***************************************************************************/
 
 function clear_input ()
 {
@@ -135,18 +233,3 @@ function show_div ( id )
     div.style.display="block";
 }
 
-async function translate_text ( text, source_lang, target_lang )
-{
-    const response = await fetch ( "https://libretranslate.com/translate",
-    {
-        method : "POST",
-        body : JSON.stringify ({
-            q : text,
-            source : source_lang,
-            target : target_lang
-        }),
-        headers: { "Content-Type": "application/json" }
-    });
-
-    return response.json();
-}
