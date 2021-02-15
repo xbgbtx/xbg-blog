@@ -65,10 +65,10 @@ paginate = 5
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
+        identifier = "github"
+        name = "github"
+        url = "https://github.com/xbgbtx"
       [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
+        identifier = "tags"
+        name = "Tags"
+        url = "/tags"
