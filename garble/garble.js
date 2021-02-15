@@ -6,6 +6,7 @@ let State = {
 }
 
 let state;
+let last_result = "";
 
 function change_state ( new_state )
 {
@@ -14,6 +15,7 @@ function change_state ( new_state )
         hide_div ( "results_output_div" );
         hide_div ( "garble_output_div" );
         hide_div ( "error_div" );
+        hide_div ( "slowdown_div" );
     };
 
     switch ( new_state )
@@ -88,11 +90,6 @@ class GarbleData
 
 function garble_text ( text )
 {
-    if ( state != State.AWAIT_INPUT )
-    {
-        return;
-    }
-
     let langs = [ "en", "ar", "zh", "fr", "de", "it", "pt", "ru", "es" ];
 
     change_state ( State.GARBLING );
@@ -128,37 +125,73 @@ function garble_step ( garble_data, step_cb, complete_cb )
 
     let error_cb = () => change_state ( State.ERROR );
 
-    translate_text ( garble_data.garbled_text,
-                     garble_data.current_lang (), 
-                     garble_data.next_lang (), 
-                     next_step,
-                     error_cb
-    );
+    let translate_options = 
+    {
+        text : garble_data.garbled_text,
+        source_lang : garble_data.current_lang (),
+        target_lang : garble_data.next_lang (),
+        translation_cb : next_step,
+        error_cb : error_cb
+    }
+
+    setTimeout ( () => translate_text ( translate_options ),
+        500 );
 }
 
-function translate_text ( text, source_lang, target_lang, 
-                          translation_cb, error_cb )
+async function translate_text ( translate_options, retries = 5 )
 {
-    fetch ( "https://libretranslate.com/translate",
+    if ( retries <= 0 )
+    {
+        translate_options.error_cb ();
+        return;
+    }
+
+    let api_options = 
+    {
+        q : translate_options.text,
+        source : translate_options.source_lang,
+        target : translate_options.target_lang
+    };
+
+    const response = await call_translate_api ( api_options );
+
+    switch ( response.status )
+    {
+        case 200 :
+            let r_json = await response.json ();
+            translate_options.translation_cb ( r_json.translatedText );
+            break;
+
+        case 429 :
+            show_div ( "slowdown_div" );
+            console.log("Slowing down...");
+            setTimeout ( () =>
+                translate_text ( translate_options, retries - 1 ),
+                30 * 1000 );
+            return;
+
+        default :
+            console.log ( response );
+            translate_options.error_cb ();
+            break;
+    }
+
+}
+
+async function call_translate_api ( options )
+{
+    const response = fetch ( "https://libretranslate.com/translate",
     {
         method : "POST",
         body : JSON.stringify ({
-            q : text,
-            source : source_lang,
-            target : target_lang
+            q : options.q,
+            source : options.source,
+            target : options.target
         }),
         headers: { "Content-Type": "application/json" }
-    })
-    .then ( response => 
-    {
-        if ( response.status == 200 )
-            return response;
-        else
-            throw "Bad response from API.";
-    })
-    .then ( response => response.json () )
-    .then ( result   => translation_cb ( result.translatedText ) )
-    .catch ( error   => error_cb () );
+    });
+
+    return response;
 }
 
 /****************************************************************************
@@ -189,6 +222,34 @@ function do_another_click ()
     }
 }
 
+function do_copy_click ()
+{
+    if ( state != State.DISPLAY_RESULTS )
+        return;
+
+    let result_div = document.getElementById ( "results_garbled_div" );
+
+    let selection = window.getSelection ();
+    let range = document.createRange ();
+
+    range.selectNodeContents ( result_div );
+
+    selection.removeAllRanges ();
+    selection.addRange ( range );
+
+    document.execCommand ( "Copy" );
+}
+
+function garble_again_click ()
+{
+    console.log(state);
+    if ( state != State.DISPLAY_RESULTS )
+        return;
+
+    garble_text ( last_result );
+
+}
+
 /****************************************************************************
  * DOM MANIPULATION
  ***************************************************************************/
@@ -204,6 +265,8 @@ function add_garble_output ( text )
 
     let output = `<div class="garble_display">${text}</div>`
     garble_output_div.innerHTML = output + garble_output_div.innerHTML;
+
+    hide_div ( "slowdown_div" );
 }
 
 function clear_garble_output ()
@@ -219,6 +282,8 @@ function set_results_output ( text, garbled_text )
 
     let garbled_div = document.getElementById ( "results_garbled_div" );
     garbled_div.innerHTML = garbled_text;
+
+    last_result = garbled_text;
 }
 
 function hide_div ( id )

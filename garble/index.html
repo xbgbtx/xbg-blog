@@ -27,6 +27,10 @@
                  <textarea id="text_in" rows="6" cols="78"></textarea><br><br>
                  <button onclick="do_garble_click()">Garble</button>
               </div>
+              <div id="slowdown_div">
+                 Garples has been shaking a lot lately. 
+                 Wait a minute and take the shipment.
+              </div>
               <div id="garble_output_div">
               </div>
               <div id="results_output_div">
@@ -36,8 +40,8 @@
                  <div id="results_garbled_div" class="results_display"></div>
                  <div id="results_controls_div" >
                     <button onclick="do_another_click()">Do Another</button>
-                    <!--<button>Garble Again</button>-->
-                    <!--<button>Copy To Clipboard</b-->
+                    <button onclick="garble_again_click()">Garble Again</button>
+                    <button onclick="do_copy_click()">Copy To Clipboard</button>
                  </div>
               </div>
               <div id="error_div">
