@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>language on xbgbtx</title>
+    <link>https://xbgbtx.github.io/xbg-blog/tags/language/</link>
+    <description>Recent content in language on xbgbtx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Feb 2021 15:12:54 +0000</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/language/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Garble</title>
+      <link>https://xbgbtx.github.io/xbg-blog/posts/garble/</link>
+      <pubDate>Mon, 15 Feb 2021 15:12:54 +0000</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/posts/garble/</guid>
+      <description>Garble text by running it through a wold tour of language translation.
+Garbleo and Juliet  Try Garble in your browser now!</description>
+    </item>
+    
+  </channel>
+</rss>
