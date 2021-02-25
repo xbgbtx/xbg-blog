@@ -1,0 +1,25 @@
+.flexrow
+{
+   display : flex;
+   flex-direction : row;
+   background-color: DodgerBlue;
+   justify-content : center;
+}
+
+.flexcol
+{
+   display : flex;
+   flex-direction : column;
+   background-color: yellow;
+   justify-content : center;
+}
+
+.control_item
+{
+   margin : 0px 20px;
+}
+
+#control_div
+{
+   min-width : 512px;
+}

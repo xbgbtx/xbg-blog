@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="user-scalable=no"/>
+
+        <meta name="HandheldFriendly" content="true" />
+
+        <link rel="stylesheet" type="text/css" href="style.css" />
+
+        <script type="text/javascript" src="pixi.min.js" ></script>
+        <script type="text/javascript" src="ca.js" ></script>
+        <script type="text/javascript" src="ca_pixi.js" ></script>
+
+        <title>Cellular Automata</title>
+
+    </head>
+
+    <body onload="page_loaded()" >
+
+        <main>
+           <div id="root_div">
+              <h1>Cellular Automata</h1>
+
+              <div id="app_div" class="flexrow" >
+                 <div id="canvas_div"></div>
+
+                 <div id="control_div" class="flexcol" >
+
+                    <label for="randomise" class="control_item">
+                       Randomise the Grid:
+                    </label>
+                    <button onclick="randomize_button_click()" 
+                            class="control_item" id="randomise">
+                       Randomise
+                    </button>
+                    <label for="pen_select" class="control_item">
+                       Pen Mode
+                    </label>
+                    <select name="pen_select" 
+                       id="pen_select" class="control_item"
+                       autocomplete="off"
+                       onchange="pen_select()"
+                       >
+                       <option value="red" selected="selected">red</option>
+                       <option value="green">green</option>
+                       <option value="blue">blue</option>
+                       <option value="black">black</option>
+                    </select>
+                 </div>
+              </div> 
+
+           </div>
+        </main>
+
+    </body>
+
+</html>
+
+
+
