@@ -4,7 +4,7 @@ date = 2021-03-02T18:04:37Z
 tags = ['web', 'art', 'programming', 'webgl']
 keywords = ['web', 'art', 'programming', 'webgl']
 cover = ""
-draft = true
+draft = false
 description = "A WebGL cellular automata runtime."
 showFullContent = false
 +++
@@ -13,18 +13,20 @@ A WebGL cellular automata runtime.
 
 {{< figure src="/xbg-blog/img/ca_webgl_001.png" title="Cellular Automata" caption="Cellular Automata" position="center">}}
 
+## Cellular Automata
+
+
 [Try it in your browser!](https://xbgbtx.github.io/xbg-blog/CellularAutomataWebGL/)
 
 [View the Source Code](https://github.com/xbgbtx/CellularAutomataWebGL)
 
-##Cellular Automata
 
 Cellular automata are a captivating example of how complexity can emerge
 from simple rules.
 
 {{< figure src="/xbg-blog/img/ca_webgl_002.png" title="Cellular Automata" caption="Cellular Automata" position="center">}}
 
-##GPU Acceleration
+## GPU Acceleration
 
 Programming a cellular automata is fairly straightforward.  The system
 simply needs to iterate through a grid and process the states of the
@@ -48,7 +50,7 @@ bit slower than the WebGL version:
 
 [CPU based Cellular Automata on Github](https://github.com/xbgbtx/Cellular_Automata)
 
-##Future Work
+## Future Work
 
 Life-life cellular automata are often represented concisely with a rule
 string.  
