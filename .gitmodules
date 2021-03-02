@@ -13,3 +13,6 @@
 [submodule "static/garble"]
 	path = project_submodules/garble
 	url = https://github.com/xbgbtx/garble.git
+[submodule "project_submodules/CellularAutomataWebGL"]
+	path = project_submodules/CellularAutomataWebGL
+	url = https://github.com/xbgbtx/CellularAutomataWebGL.git
