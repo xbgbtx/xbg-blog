@@ -32,6 +32,9 @@ class CAPixi
         PIXI.utils.sayHello ( type );
 
         this.pixi_app = new PIXI.Application ( { width, height });
+
+        PIXI.settings.RESOLUTION = window.devicePixelRatio;
+        PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
     }
 
     create_display_sprite ( width, height )
