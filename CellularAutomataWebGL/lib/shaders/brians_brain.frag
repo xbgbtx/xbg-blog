@@ -2,11 +2,13 @@ varying vec2 vTextureCoord;
 
 uniform sampler2D uSampler;
 
+uniform int size;
+
 void main()
 {
    vec4 c0 = texture2D ( uSampler, vTextureCoord );
 
-   float px = 1.0/512.0;
+   float px = 1.0/float ( size );
 
    bool ready = int(c0.b)==0;
    bool firing = int(c0.r)==1;

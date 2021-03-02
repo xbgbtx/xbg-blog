@@ -2,11 +2,13 @@ varying vec2 vTextureCoord;
 
 uniform sampler2D uSampler;
 
+uniform int size;
+
 void main()
 {
    vec4 c0 = texture2D ( uSampler, vTextureCoord );
 
-   float px = 1.0/512.0;
+   float px = 1.0/float ( size );
 
    vec4 count = c0.rgba * -1.0;
 

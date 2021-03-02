@@ -12,7 +12,7 @@ async function page_loaded ()
 
     await shader_manager.fetch_shaders ();
 
-    let renderer = new CAPixi ( 512, 512 );
+    let renderer = new CAPixi ( w, h );
 
     let automata = get_automata ( shader_manager );
     ca_system = new CASystem ( renderer, automata );

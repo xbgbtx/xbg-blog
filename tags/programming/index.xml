@@ -6,7 +6,21 @@
     <description>Recent content in programming on xbgbtx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Feb 2021 15:32:10 +0000</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Mar 2021 18:04:37 +0000</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cellular Automata</title>
+      <link>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata/</link>
+      <pubDate>Tue, 02 Mar 2021 18:04:37 +0000</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata/</guid>
+      <description>A WebGL cellular automata runtime.
+Cellular Automata  Cellular Automata Try it in your browser!
+View the Source Code
+Cellular automata are a captivating example of how complexity can emerge from simple rules.
+Cellular Automata  GPU Acceleration Programming a cellular automata is fairly straightforward. The system simply needs to iterate through a grid and process the states of the cells.
+In order to make the simulation run in real time I decided to implement the system using WebGL fragment shaders.</description>
+    </item>
+    
     <item>
       <title>Garble</title>
       <link>https://xbgbtx.github.io/xbg-blog/posts/garble/</link>

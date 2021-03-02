@@ -7,6 +7,8 @@ class CAPixi
         this.create_sim ( width, height )
         this.create_input_sprite ( width, height );
 
+        this.gridSize = width;
+
         this.graphics = new PIXI.Graphics ();
 
         this.automaton = undefined;
@@ -65,7 +67,8 @@ class CAPixi
     {
         this.automaton = a;
         this.set_shader (  this.sim.get_input_sprite (),
-                            null, a.get_shader (), {});
+                            null, a.get_shader (), 
+                            { size : this.gridSize });
     }
 
     set_shader ( target, vert, frag, uniforms )
