@@ -1,5 +1,5 @@
-const w = 512;
-const h = 512;
+const w = 800;
+const h = 800;
 
 let ca_system;
 let shader_manager;
