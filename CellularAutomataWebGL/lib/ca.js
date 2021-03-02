@@ -37,6 +37,7 @@ class CASystem
     {
         this.automaton = this.automata [ a ];
         this.renderer.set_automaton ( this.automaton );
+        this.renderer.randomize ();
         this.set_pen_color ( this.automaton.get_default_pen_option () );
         set_pen_options ( this.automaton.get_pen_options () );
     }
