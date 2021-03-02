@@ -14,6 +14,8 @@ class CAPixi
         this.automaton = undefined;
         this.input_queue = [];
 
+        this.drawing = false;
+
         this.pixi_app.ticker.add ( () => this.update () );
 
         document.getElementById ( "canvas_div" )
@@ -41,6 +43,20 @@ class CAPixi
     {
         this.display_sprite = 
             PIXI.Sprite.from ( this.create_render_texture ( width, height ) );
+
+        this.display_sprite.interactive = true;
+        this.display_sprite
+            .on ( 'pointerdown', () => this.drawing = true )
+            .on ( 'pointerup', () => this.drawing = false )
+            .on ( 'pointermove', ( e ) => 
+            {
+                let x = e.data.global.x;
+                let y = e.data.global.y;
+                if ( this.drawing )
+                {
+                    canvas_mouse ( x, y );
+                }
+            } );
 
         this.pixi_app.stage.addChild ( this.display_sprite );
     }
@@ -97,8 +113,6 @@ class CAPixi
 
         let renderer = this.pixi_app.renderer;
 
-        this.poll_mouse ( renderer.plugins.interaction.mouse );
-
         if ( this.input_queue.length <= 0 )
             return;
 
@@ -113,23 +127,6 @@ class CAPixi
 
         renderer.render ( this.input_sprite, 
                           this.sim.get_input_texture (), false );
-    }
-
-    poll_mouse ( mouse )
-    {
-        //exit it mouse main button not down
-        if ( mouse.pointerType == "mouse" &&  mouse.buttons != 1 )
-        {
-            return;
-        }
-
-        if ( mouse.global.x >= 0 && 
-             mouse.global.x < this.pixi_app.renderer.width &&
-             mouse.global.y >= 0 &&
-             mouse.global.y < this.pixi_app.renderer.height )
-        {
-            canvas_mouse ( mouse.global.x, mouse.global.y );
-        }
     }
 
     randomize ()
