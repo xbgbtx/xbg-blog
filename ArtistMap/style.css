@@ -1,0 +1,86 @@
+.dc-pancake-parent
+{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.dc-pancake-child
+{
+   flex: 0 0 600px;
+   margin: 20px;
+   border: 5px solid #1C6EA4;
+}
+
+/* leaflet js map div needs a fixed height */
+#mapdiv 
+{ 
+   width: 640px; 
+   height: 640px; 
+}
+
+.map_cluster
+{
+   background: #fff;
+   font-size: 14px;
+   border: 2px solid #1C6EA4;
+   padding: 3px;
+}
+
+#infodiv
+{
+   flex: 0 0 600px;
+}
+
+.header 
+{
+   display: flex;
+   padding: 20px;
+   text-align: center;
+   background: #1abc9c;
+   color: white;
+   font-size: 40px;
+   align-items: center;
+}
+
+.header a
+{
+   margin-left : 30px;
+}
+
+.header img
+{
+   width: 152px;
+   height: 152px;
+}
+
+.artist_info
+{
+   display: flex;
+   padding: 6px;
+   background: #fff;
+   align-items: center;
+   font-size: 24px;
+}
+
+.artist_info:nth-of-type(odd) 
+{
+   background: #eee;
+}
+
+.artist_info a
+{
+   margin-left : 30px;
+}
+
+.artist_info img
+{
+   width: 128px;
+   height: 128px;
+}
+
+.scroll
+{
+   height: 440px;
+   overflow: auto;
+}
