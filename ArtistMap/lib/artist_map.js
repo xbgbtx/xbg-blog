@@ -1,7 +1,14 @@
 const marker_data_url="data/artist_locations"
 
+const attribution_str = 
+    "&copy; <a href=\"https://openstreetmap.org/copyright\">"         +
+                        "OpenStreetMap contributors</a> | "           +
+    "<a href=\"https://www.wikidata.org\" >Wikidata</a> | "           +
+    "<a href=\"https://github.com/xbgbtx/ArtistMap\" >Source Code</a>";
+
+
 //ID of location currently being displayed
-var active_loc = null;
+let active_loc = null;
 
 async function page_loaded ()
 {
@@ -16,15 +23,11 @@ function create_map ()
 {
     let map = L.map ("mapdiv").setView ( [0, 0], 2 );
 
-    //map.setMaxBounds ( L.latLngBounds( L.latLng(-90,-180),  
-                                       //L.latLng( 90, 180) ) );
-
     // Add OpenStreetMap tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
     {
         maxZoom: 19,
-        attribution: "&copy; <a href=\"https://openstreetmap.org/copyright\">"+
-                     "OpenStreetMap contributors</a>",
+        attribution: attribution_str,
         continuousWorld: false,
         noWrap: false
     }).addTo(map);
@@ -35,30 +38,14 @@ function create_map ()
 async function add_locations ( map )
 {
     let locs = await get_marker_data ( "locations" );
-    let markers = L.markerClusterGroup (
+    let marker_cluster = L.markerClusterGroup (
     {
-        iconCreateFunction: function ( cluster )
-        {
-            let artist_count = cluster.getAllChildMarkers ().reduce (
-                ( total, m ) => total + m.artist_count, 0
-            );
-            let size = 30 + ( 10 * Math.floor(Math.log10(artist_count)) )
-            return L.divIcon(
-            { 
-                html: `${artist_count}` ,
-                iconSize: L.Point(size,size),
-                className: "map_cluster"
-            });
-        }
+        chunkedLoading: true,
+        iconCreateFunction: ( c ) => marker_cluster_icon ( c )
     });
 
-    map.addLayer ( markers );
 
-    let sleep = ( ms ) =>
-        new Promise ( resolve => setTimeout ( resolve, ms ) );
-
-    let i = 0;
-    for ( const loc of locs ) 
+    let markers = locs.map ( loc => 
     {
         let latlng = L.latLng(loc.lat, loc.lon);
         let m = L.marker(latlng,
@@ -67,18 +54,58 @@ async function add_locations ( map )
         })
         .on ( "click", () => open_info_popup (map,loc,latlng) );
         m["artist_count"] = parseInt(loc.artist_count);
-        markers.addLayer ( m );
 
-        await sleep ( 0 );
+        return m;
+    });
+
+    marker_cluster.addLayers ( markers );
+    map.addLayer ( marker_cluster );
+}
+
+function marker_cluster_icon ( cluster )
+{
+    let artist_count = cluster.getAllChildMarkers ().reduce (
+        ( total, m ) => total + m.artist_count, 0
+    );
+    
+    let log_count = Math.floor ( Math.log10 ( artist_count ) );
+
+    let size = 30;
+    let size_class = "marker-cluster-";
+
+    switch ( log_count )
+    {
+        case  0 : 
+        case  1 : 
+            size_class += "small"; 
+            size = 30;
+            break;
+        case  2 : 
+        case  3 : 
+            size_class += "medium"; 
+            size = 50;
+            break;
+        default : 
+            size_class += "large"
+            size = 70;
     }
 
+
+    return L.divIcon(
+    { 
+        html: `<div><span>${artist_count}</span></div>` ,
+        iconSize: L.Point(size,size),
+        className: `marker-cluster ${size_class}`
+    });
 }
 
 function open_info_popup ( map, loc, latlng )
 {
-    map.flyTo(latlng, 8);
+    map.flyTo(latlng, Math.max(map.getZoom(), 12));
+
     let info_div = document.createElement ( "div" );
     info_div.classList.add ( "info_popup" );
+
     let popup = L.popup(
     {
         minWidth : 250,
