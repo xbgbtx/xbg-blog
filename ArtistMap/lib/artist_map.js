@@ -13,15 +13,14 @@ let active_loc = null;
 async function page_loaded ()
 {
     console.log ( "Artist Map starting..." );
-
     let map = create_map ();
-
     await add_locations ( map );
 }
 
 function create_map ()
 {
-    let map = L.map ("mapdiv").setView ( [0, 0], 2 );
+    let home = [[0, 0], 2];
+    let map = L.map ("mapdiv").setView ( ...home );
 
     // Add OpenStreetMap tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
@@ -31,6 +30,12 @@ function create_map ()
         continuousWorld: false,
         noWrap: false
     }).addTo(map);
+
+    L.easyButton ( "<img class=\"button_icon\" src=\"assets/globe.svg\">", 
+    ( btn, map ) =>
+    {
+        map.flyTo( ...home );
+    }).addTo ( map );
 
     return map;
 }
@@ -96,7 +101,6 @@ function marker_cluster_icon ( cluster )
             size_class += "x-large"
             size = 90;
     }
-
 
     return L.divIcon(
     { 
