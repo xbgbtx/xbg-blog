@@ -6,7 +6,20 @@
     <description>Recent content in Posts on xbgbtx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Mar 2021 18:04:37 +0000</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Apr 2021 15:14:53 +0100</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Artist Map</title>
+      <link>https://xbgbtx.github.io/xbg-blog/posts/artist-map/</link>
+      <pubDate>Wed, 28 Apr 2021 15:14:53 +0100</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/posts/artist-map/</guid>
+      <description>This interactive map shows the birth and formation location of nearly sixty thousand musicians and musical ensembles.
+Artist Map  Try it in your browser!
+View the Source Code
+Leaflet JS Map The map data is displayed using Leaflet JS - a flexible front end for map data. The map tiles are sourced from Open Street Map.
+WikiData Data is queried from WikiData a service that enables SPARQL queries on a database generated from the article text of Wikipedia articles.</description>
+    </item>
+    
     <item>
       <title>Cellular Automata</title>
       <link>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata/</link>

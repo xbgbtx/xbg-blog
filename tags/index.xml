@@ -6,20 +6,29 @@
     <description>Recent content in Tags on xbgbtx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Mar 2021 18:04:37 +0000</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Apr 2021 15:14:53 +0100</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>art</title>
-      <link>https://xbgbtx.github.io/xbg-blog/tags/art/</link>
-      <pubDate>Tue, 02 Mar 2021 18:04:37 +0000</pubDate>
+      <title>map</title>
+      <link>https://xbgbtx.github.io/xbg-blog/tags/map/</link>
+      <pubDate>Wed, 28 Apr 2021 15:14:53 +0100</pubDate>
       
-      <guid>https://xbgbtx.github.io/xbg-blog/tags/art/</guid>
+      <guid>https://xbgbtx.github.io/xbg-blog/tags/map/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>music</title>
+      <link>https://xbgbtx.github.io/xbg-blog/tags/music/</link>
+      <pubDate>Wed, 28 Apr 2021 15:14:53 +0100</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/tags/music/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
       <link>https://xbgbtx.github.io/xbg-blog/tags/programming/</link>
-      <pubDate>Tue, 02 Mar 2021 18:04:37 +0000</pubDate>
+      <pubDate>Wed, 28 Apr 2021 15:14:53 +0100</pubDate>
       
       <guid>https://xbgbtx.github.io/xbg-blog/tags/programming/</guid>
       <description></description>
@@ -28,9 +37,27 @@
     <item>
       <title>web</title>
       <link>https://xbgbtx.github.io/xbg-blog/tags/web/</link>
-      <pubDate>Tue, 02 Mar 2021 18:04:37 +0000</pubDate>
+      <pubDate>Wed, 28 Apr 2021 15:14:53 +0100</pubDate>
       
       <guid>https://xbgbtx.github.io/xbg-blog/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wikipedia</title>
+      <link>https://xbgbtx.github.io/xbg-blog/tags/wikipedia/</link>
+      <pubDate>Wed, 28 Apr 2021 15:14:53 +0100</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/tags/wikipedia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>art</title>
+      <link>https://xbgbtx.github.io/xbg-blog/tags/art/</link>
+      <pubDate>Tue, 02 Mar 2021 18:04:37 +0000</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/tags/art/</guid>
       <description></description>
     </item>
     
