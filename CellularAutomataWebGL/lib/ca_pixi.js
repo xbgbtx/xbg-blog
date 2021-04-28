@@ -69,7 +69,8 @@ class CAPixi
 
     create_render_texture ( width, height )
     {
-        let brt = new PIXI.BaseRenderTexture({ width, height });
+        let resolution = 1;
+        let brt = new PIXI.BaseRenderTexture({ width, height, resolution });
         let rt = new PIXI.RenderTexture ( brt )
 
         return rt;
