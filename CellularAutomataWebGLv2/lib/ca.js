@@ -16,9 +16,7 @@ async function page_loaded ()
     let automata = get_automata ( shader_manager );
     ca_system = new CASystem ( renderer, automata );
 
-    //ca_system.set_automaton ( "brians_brain", 256, 256 );
-    //ca_system.set_automaton ( "rps", 256, 256 );
-    ca_system.set_automaton ( "game_of_life", 256, 256 );
+    ca_system.set_automaton ( "game_of_life", 128, 128 );
 
 }
 
