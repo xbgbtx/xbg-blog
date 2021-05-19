@@ -34,7 +34,8 @@ class CASystem
 
     set_automaton ( a, width, height )
     {
-        this.automaton = this.automata [ a ];
+        this.automaton_key = a;
+        this.automaton = this.automata.get ( a );
         this.sim_size = { width, height };
         this.renderer.set_automaton ( this.automaton, width, height );
         this.set_pen_mode ( this.automaton.get_default_pen_option () );
