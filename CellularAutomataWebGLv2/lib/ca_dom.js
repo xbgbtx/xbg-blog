@@ -183,7 +183,7 @@ function create_automata_params_elements ( params )
 
                 let checkbox_randomize = ( num_boxes ) =>
                 {
-                    let check = ( Math.random () < (2/num_boxes) );
+                    let check = ( Math.random () < (8/num_boxes) );
                     checkbox.checked = check;
                 };
 

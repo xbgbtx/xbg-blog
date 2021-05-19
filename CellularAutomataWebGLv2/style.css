@@ -77,7 +77,6 @@ html, body, main, .max_size
    background: #ccc;
    grid-column: 2 / 3;
    font-family: arial;
-   max-width: 50vw;
 }
 
 #ui_menu_header
@@ -101,6 +100,9 @@ html, body, main, .max_size
 #ui_menu_content
 {
    padding : 5px;
+   max-width: 50vw;
+   max-height: 80vh;
+   overflow: scroll;
 }
 
 /* 
