@@ -16,3 +16,9 @@
 [submodule "project_submodules/CellularAutomataWebGL"]
 	path = project_submodules/CellularAutomataWebGL
 	url = https://github.com/xbgbtx/CellularAutomataWebGL.git
+[submodule "project_submodules/ArtistMap"]
+	path = project_submodules/ArtistMap
+	url = https://github.com/xbgbtx/ArtistMap.git
+[submodule "project_submodules/CellularAutomataWebGLv2"]
+	path = project_submodules/CellularAutomataWebGLv2
+	url = https://github.com/xbgbtx/CellularAutomataWebGL.git
