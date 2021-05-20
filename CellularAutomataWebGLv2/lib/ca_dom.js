@@ -252,7 +252,12 @@ function show_pen_menu ()
     p_select.onchange = () => ca_system.set_pen_mode ( p_select.value );
 
     let size_slider = document.getElementById ( "pen_size" );
+    size_slider.value = ca_system.pen_size;
     size_slider.onchange = () => ca_system.set_pen_size ( size_slider.value );
+
+    let w = ca_system.sim_size.width;
+    let h = ca_system.sim_size.height;
+    size_slider.max = Math.max ( w, h )/2;
 
 }
 
