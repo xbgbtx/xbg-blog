@@ -78,6 +78,11 @@ class AutomatonParamInt
     }
 }
 
+/**
+ * A parameter that is a set of ints.  The domain of the set is subject
+ * to change so a function is used and invalid entries are cleared.
+ * E.g. if the neighbourhood changes the valid values will change
+ */
 class AutomatonParamIntSet
 {
     constructor ( domain_cb, default_set )
@@ -90,10 +95,8 @@ class AutomatonParamIntSet
     add ( val )
     {
         let d = this.domain ();
-
         if ( !d.has ( val ) )
-            throw `${val} outside domain`;
-
+            return;
         this.set.add ( val );
     }
 
@@ -104,16 +107,22 @@ class AutomatonParamIntSet
 
     has ( val )
     {
-        return this.set.has ( val );
-    }
-
-    values ()
-    {
-        return this.set.values ();
+        let d = this.domain ();
+        return d.has(val) && this.set.has ( val );
     }
 
     domain ()
     {
+        let d = this.domain_cb ();
+
+        let union = new Set ();
+
+        for ( const v of this.set )
+            if ( d.has ( v ) )
+                union.add ( v );
+
+        this.set = union;
+
         return this.domain_cb ();
     }
 
@@ -164,7 +173,6 @@ class LifeLike extends Automaton
             let d = new Set ();
             for ( let i = 0; i<n; i++ )
                 d.add (i);
-            console.log ( d );
             return d;
         };
         this.params.set ( "Birth", 
@@ -179,8 +187,6 @@ class LifeLike extends Automaton
 
     get_shader ()
     {
-        console.log ( this.params );
-
         let shader_options =
         {
             num_states : 2,

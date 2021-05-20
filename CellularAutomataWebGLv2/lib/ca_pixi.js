@@ -68,8 +68,6 @@ class CAPixi
         let view_w = this.pixi_app.renderer.width;
         let view_h = this.pixi_app.renderer.height;
 
-        console.log ( {view_w, view_h});
-
         this.display_sprite.width = Math.min ( view_w, view_h );
         this.display_sprite.height = Math.min ( view_w, view_h );
 

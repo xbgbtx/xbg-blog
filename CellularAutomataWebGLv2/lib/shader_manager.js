@@ -67,8 +67,6 @@ class ShaderManager
 
         `;
 
-        console.log ( shader );
-
         return shader;
     }
 

@@ -161,21 +161,31 @@ function create_automata_params_elements ( params )
             legend.textContent = p_name;
             fieldset.appendChild ( legend );
 
+            let cb_div = document.createElement ( "div" );
+            cb_div.classList.add ( "int_set_container" );
+            fieldset.appendChild ( cb_div );
+
             for ( const val of p_value.domain () ) 
             {
                 let label = document.createElement ( "label" );
-                label.textContent = `${val}:`;
-                fieldset.appendChild ( label );
+                let label_span = document.createElement ( "span" );
+                label_span.classList.add("visually-hidden");
+                label_span.textContent = `${val}:`;
+                label.appendChild ( label_span );
+                cb_div.appendChild ( label );
 
-                let checkbox = document.createElement ( "input" );
-                checkbox.type = "checkbox";
-                checkbox.name = `auto_param_${p_name}_${val}`;
-                checkbox.id = checkbox.name;
-                checkbox.checked = p_value.has ( val );
+                let checkbox = clone_template("int_set_checkbox_template");
+                checkbox.classList.add("int_set_checkbox");
+
+                let cb_input = checkbox.getElementsByTagName ( "input" )[0];
+                cb_input.type = "checkbox";
+                cb_input.name = `auto_param_${p_name}_${val}`;
+                cb_input.id = cb_input.name;
+                cb_input.checked = p_value.has ( val );
 
                 let checkbox_apply = () =>
                 {
-                    if ( checkbox.checked )
+                    if ( cb_input.checked )
                         p_value.add ( val );
                     else
                         p_value.delete ( val );
@@ -183,15 +193,15 @@ function create_automata_params_elements ( params )
 
                 let checkbox_randomize = ( num_boxes ) =>
                 {
-                    let check = ( Math.random () < (8/num_boxes) );
-                    checkbox.checked = check;
+                    if ( Math.random () < (1/Math.sqrt(num_boxes)) )
+                        cb_input.checked = !cb_input.checked;
                 };
 
                 param_elements.randomize_cbs.push ( checkbox_randomize );
 
                 param_elements.apply_cbs.push ( checkbox_apply );
 
-                fieldset.appendChild ( checkbox );
+                cb_div.appendChild ( checkbox );
 
                 label.htmlFor=checkbox.id;
             }
@@ -253,6 +263,9 @@ function hide_ui_menu ()
         throw "Can't find ui_menu.";
 
     ui_menu.style.visibility = 'hidden';
+
+    let ui_menu_content = document.getElementById ( "ui_menu_content" );
+    ui_menu_content.innerHTML = "";
 }
 
 
@@ -260,7 +273,7 @@ function clone_template ( name )
 {
     let temp = document.getElementById ( name );
     let clone = temp.content.cloneNode ( true );
-    return clone;
+    return clone.firstElementChild;
 }
 
 function set_ui_menu_form_values ( menu_id )
