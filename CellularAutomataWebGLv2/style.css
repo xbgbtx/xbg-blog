@@ -108,7 +108,7 @@ html, body, main, .max_size
 
 #ui_menu_content form
 {
-   width : 100%;
+   display : inline-block;
 }
 
 .int_set_container
