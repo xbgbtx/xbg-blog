@@ -2,6 +2,7 @@
 {
    --ui_white: #F0EEEE;
    --ui_purple: #7766cc;
+   --ui_grey: #ecefee;
 }
 
 body
@@ -74,11 +75,10 @@ html, body, main, .max_size
 
 #ui_menu
 {
-   background: #ccc;
+   background: var(--ui_grey);
    grid-column: 2 / 3;
    font-family: arial;
    max-width: 50vw;
-   max-height: 80vh;
 }
 
 #ui_menu_header
@@ -103,6 +103,7 @@ html, body, main, .max_size
 {
    padding : 5px;
    overflow: scroll;
+   max-height: 80vh;
    overflow-x: hidden;
 }
 
