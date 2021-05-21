@@ -78,7 +78,7 @@ html, body, main, .max_size
    background: var(--ui_grey);
    grid-column: 2 / 3;
    font-family: arial;
-   max-width: 50vw;
+   max-width: 600px;
 }
 
 #ui_menu_header
