@@ -6,7 +6,21 @@
     <description>Recent content in webgl on xbgbtx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Mar 2021 18:04:37 +0000</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/webgl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 May 2021 13:13:13 +0100</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/webgl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cellular Automata V2</title>
+      <link>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata-v2/</link>
+      <pubDate>Fri, 21 May 2021 13:13:13 +0100</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata-v2/</guid>
+      <description>A WebGL cellular automata runtime.
+Cellular Automata  Cellular Automata Try it in your browser!
+View the Source Code
+Cellular automata are a captivating example of how complexity can emerge from simple rules.
+Cellular Automata  Version 2 Version 2 brings an improved user interface. The simulation is displayed full screen and a menu system floats on top.
+I added a new rule called &amp;lsquo;Life Like&amp;rsquo; that allows for the conditions for life and dead in Conway&amp;rsquo;s Game of Life to be modified.</description>
+    </item>
+    
     <item>
       <title>Cellular Automata</title>
       <link>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata/</link>
