@@ -22,3 +22,6 @@
 [submodule "project_submodules/CellularAutomataWebGLv2"]
 	path = project_submodules/CellularAutomataWebGLv2
 	url = https://github.com/xbgbtx/CellularAutomataWebGL.git
+[submodule "project_submodules/CellularAutomataWebGLv3"]
+	path = project_submodules/CellularAutomataWebGLv3
+	url = https://github.com/xbgbtx/CellularAutomataWebGL.git
