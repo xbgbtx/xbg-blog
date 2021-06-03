@@ -3,8 +3,8 @@ const fftSize = Math.pow ( 2, 15 );
 let mic_enabled = false;
 let audioCtx, analyser, audio_data;
 
-let audio_grid_w = 4;
-let audio_grid_h = 4;
+const f_buffer_len = 7;
+let freq_buffer;
 
 async function enable_microphone ()
 {
@@ -31,6 +31,10 @@ async function enable_microphone ()
     mic.connect ( analyser );
 
     audio_data = new Uint8Array ( analyser.frequencyBinCount );
+    freq_buffer = [];
+
+    for ( let i = 0; i < f_buffer_len; i++ )
+        freq_buffer.push ( 0 );
 
     window.requestAnimationFrame ( process_audio );
     mic_enabled = true;
@@ -44,21 +48,20 @@ function process_audio ()
 
     analyser.getByteFrequencyData ( audio_data );
 
-    let r_size = audio_grid_w * audio_grid_h;
-    let r_data = reduce_audio_data ( r_size, 0, audio_data.length / 2 );
+    update_freq_buffer ( 0, audio_data.length  );
 
-    render_reduced_data ( r_data );
+    render_freq_buffer ();
 
     window.requestAnimationFrame ( process_audio );
 }
 
-function reduce_audio_data ( output_size, data_start, data_end )
+function update_freq_buffer ( data_start, data_end )
 {
-    let output = [];
+    freq_buffer = freq_buffer.map ( x => x * 0.6 );
 
     let span = Math.min ( data_end - data_start, 1 );
 
-    for ( let i = 0; i<output_size; i++ )
+    for ( let i = 0; i<freq_buffer.length; i++ )
     {
         let x = 0;
         let b0 = span * i;
@@ -67,34 +70,46 @@ function reduce_audio_data ( output_size, data_start, data_end )
         for ( let j = b0; j < b1; j++ )
             x += Math.max ( audio_data [ b0 + j ], 0 );
 
-        output.push ( ( x / span ) / 255 );
-    }
+        let f = ( x / span ) / 255;
 
-    return output;
+        freq_buffer [i] = Math.min ( 2, freq_buffer [i] + f );
+    }
 }
 
-function render_reduced_data ( r_data )
+function render_freq_buffer ()
 {
-    let cell_w = ca_system.sim_size.width / audio_grid_w;
-    let cell_h = ca_system.sim_size.height / audio_grid_h;
+    let w = ca_system.sim_size.width;
+    let h = ca_system.sim_size.height;
+
+    let t_m = 15000;
+    let t = Math.floor ( performance.now () % t_m ) / t_m;
+
+    let origin = {
+        x : w / 2 + ( w/2 * Math.sin ( Math.PI * 3 * t ) ),
+        y : h / 2 + ( h/2 * Math.sin ( Math.PI * 7 * t ) )
+    }
+
+    let dist = Math.sqrt ( w*w + h*h ) / 2;
 
     let palette = ca_system.automaton.get_random_palette ();
+    let p_idx =  Math.floor ( Math.random () * palette.length );
+    let pen_col = palette [ p_idx ];
 
-    let c_idx =  Math.floor ( Math.random () * palette.length );
-    let pen_col = palette [ c_idx ];
 
-    for ( let i = 0; i < audio_grid_h; i++ )
+
+    for ( let i = 0; i < freq_buffer.length; i++ )
     {
-        let y = cell_h * i + cell_h/2;
+        let f = freq_buffer[i];
+        let n = i / freq_buffer.length;
+        let a = Math.PI * 2 * n;
+        let h = dist * n * f;
 
-        for ( let j = 0; j < audio_grid_w; j++ )
-        {
-            let x = cell_w * j + cell_w/2;
-            let audio_idx = i * audio_grid_w + j;
-            let f = r_data [ audio_idx ];
-            let rad = Math.min ( cell_w, cell_h ) * f * 2;
+        let x = origin.x + ( h * Math.cos ( Math.PI * n * f * t * 19 ) );
+        let y = origin.y + ( h * Math.sin ( Math.PI * n * f * t * 13 ) );
 
-            ca_system.renderer.draw ( x, y, pen_col, rad );
-        }
+        let r_sin = Math.abs ( Math.sin ( Math.PI * 7 * t ) ) + 0.25;
+        let rad = dist * (1-n) * f * r_sin;
+
+        ca_system.renderer.draw ( x, y, pen_col, rad );
     }
 }

@@ -190,7 +190,7 @@ class CAPixi
     draw ( x, y, pen_color, pen_size )
     {
         this.graphics
-            .lineStyle ( 1, pen_color )
+            .lineStyle ( 2, pen_color )
             //.beginFill ( pen_color, 1 )
             .drawCircle ( x, y, pen_size );
 
