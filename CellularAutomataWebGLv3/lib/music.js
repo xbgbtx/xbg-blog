@@ -3,7 +3,7 @@ const fftSize = Math.pow ( 2, 15 );
 let mic_enabled = false;
 let audioCtx, analyser, audio_data;
 
-const f_buffer_len = 7;
+const f_buffer_len = 13;
 let freq_buffer;
 
 async function enable_microphone ()
