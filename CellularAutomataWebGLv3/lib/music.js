@@ -104,8 +104,8 @@ function render_freq_buffer ()
         let a = Math.PI * 2 * n;
         let h = dist * n * f;
 
-        let x = origin.x + ( h * Math.cos ( Math.PI * n * f * t * 19 ) );
-        let y = origin.y + ( h * Math.sin ( Math.PI * n * f * t * 13 ) );
+        let x = origin.x + ( h * Math.cos ( Math.PI * n * t * 19 ) );
+        let y = origin.y + ( h * Math.sin ( Math.PI * n * t * 13 ) );
 
         let r_sin = Math.abs ( Math.sin ( Math.PI * 7 * t ) ) + 0.25;
         let rad = dist * (1-n) * f * r_sin;
