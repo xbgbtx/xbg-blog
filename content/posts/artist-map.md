@@ -15,7 +15,7 @@ sixty thousand musicians and musical ensembles.
 
 [Try it in your browser!](https://xbgbtx.github.io/xbg-blog/ArtistMap/)
 
-[View the Source Code](https://github.com/xbgbtx/CellularAutomataWebGL)
+[View the Source Code](https://github.com/xbgbtx/ArtistMap)
 
 
 ## Leaflet JS Map
