@@ -1,0 +1,36 @@
+#ui_overlay
+{
+   position: absolute;
+   z-index: 120;
+   min-width: 50px;
+   display: grid;
+   grid-template-columns: auto auto;
+   gap: 8px;
+}
+
+#ui_overlay_button_column
+{
+   grid-column: 1 / 2;
+}
+
+#ui_buttons_grid
+{
+   display: grid;
+   grid-gap: 8px;
+   grid-template-columns: auto;
+   grid-template-rows: repeat ( auto-fill, auto );
+}
+
+.buttons_grid_item
+{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   grid-column: 1 / 2;
+}
+
+.icon_button
+{
+   padding: 0px;
+   margin: 3px;
+}
