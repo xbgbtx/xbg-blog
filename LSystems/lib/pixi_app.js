@@ -52,9 +52,8 @@
 
         app.stage.addChild(viewport);
 
-        viewport.position.x=756;
-        viewport.position.y=300;
-        viewport.zoomPercent(8);
+        viewport.position.x=1081;
+        viewport.position.y=345;
 
         return viewport;
     }
