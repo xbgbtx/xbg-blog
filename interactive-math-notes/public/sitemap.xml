@@ -3,16 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://xbgbtx.github.io/xbg-blog/interactive-math-notes/public/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://xbgbtx.github.io/xbg-blog/interactive-math-notes/public/categories/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://xbgbtx.github.io/xbg-blog/interactive-math-notes/public/tags/</loc>
   </url>
   
 </urlset>

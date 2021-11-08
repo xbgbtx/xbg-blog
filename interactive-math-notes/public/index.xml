@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Interactive Math Notes</title>
-    <link>https://example.com/</link>
+    <link>https://xbgbtx.github.io/xbg-blog/interactive-math-notes/public/</link>
     <description>Recent content on Interactive Math Notes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://xbgbtx.github.io/xbg-blog/interactive-math-notes/public/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
