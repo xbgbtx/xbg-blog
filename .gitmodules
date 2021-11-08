@@ -28,3 +28,6 @@
 [submodule "project_submodules/LSystems"]
 	path = project_submodules/LSystems
 	url = https://github.com/xbgbtx/L-Systems.git
+[submodule "project_submodules/interactive-math-notes"]
+	path = project_submodules/interactive-math-notes
+	url = https://github.com/xbgbtx/interactive-math-notes
