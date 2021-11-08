@@ -1,4 +1,4 @@
-baseURL = "https://xbgbtx.github.io/xbg-blog/interactive-math-notes/"
+baseURL = "https://xbgbtx.github.io/xbg-blog/interactive-math-notes/public/"
 
 languageCode = "en-us"
 DefaultContentLanguage = "en"
