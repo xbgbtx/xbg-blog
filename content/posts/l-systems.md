@@ -16,7 +16,7 @@ fractals.
 I have implemented a system for rendering L-Systems using the PixiJS
 graphics library.
 
-[Try it in your browser!](https://xbgbtx.github.io/xbg-blog/LSystems/)
+[Try it in your browser!](https://xbgbtx.github.io/L-Systems/)
 
 [View the Source Code](https://github.com/xbgbtx/L-Systems)
 
