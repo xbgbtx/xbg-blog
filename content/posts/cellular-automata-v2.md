@@ -16,7 +16,7 @@ A WebGL cellular automata runtime.
 ## Cellular Automata
 
 
-[Try it in your browser!](https://xbgbtx.github.io/xbg-blog/CellularAutomataWebGLv2/)
+[Try it in your browser!](https://xbgbtx.github.io/CellularAutomataWebGL/)
 
 [View the Source Code](https://github.com/xbgbtx/CellularAutomataWebGL)
 
