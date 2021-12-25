@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta property="og:title" content="WebGL Cellular Automata">
+        <meta property="og:description" content="GPU Accelerated Cellular Automata Simulations">
+        <meta property="og:image" content="https://xbgbtx.github.io/xbg-blog/CellularAutomataWebGLv2/media/thumb.png">
+        <meta property="og:url" content="https://xbgbtx.github.io/xbg-blog/CellularAutomataWebGLv2/">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <meta name="HandheldFriendly" content="true" />
+
+        <link rel="stylesheet" type="text/css" href="style.css" />
+
+        <script type="text/javascript" src="lib/pixi.min.js" ></script>
+        <script type="text/javascript" src="lib/ca.js" ></script>
+        <script type="text/javascript" src="lib/ca_dom.js" ></script>
+        <script type="text/javascript" src="lib/automata.js" ></script>
+        <script type="text/javascript" src="lib/shader_manager.js" ></script>
+        <script type="text/javascript" src="lib/ca_pixi.js" ></script>
+        <script type="text/javascript" src="lib/ca_pixi/render_feedback.js" ></script>
+
+        <title>Cellular Automata</title>
+
+    </head>
+
+    <body onload="page_loaded()" >
+
+        <main>
+           <div id="root_div" class="max_size">
+
+              <div id="ui_overlay">
+                 <div id="ui_buttons" >
+                    <div id="ui_buttons_grid">
+                       <div class="buttons_grid_item" >
+                          <button class="icon_button"
+                             onclick="ui_option_click('automaton')">
+                           <img src="media/icons/menu.svg" 
+                              aria-hidden="true" 
+                              focusable="false" alt="Automaton" />
+                           <span class="visually-hidden">Automaton</span>
+                          </button>
+                        </div>
+                       <div class="buttons_grid_item" >
+                          <button class="icon_button"
+                             onclick="ui_option_click('pen')">
+                           <img src="media/icons/edit-3.svg" 
+                              aria-hidden="true" 
+                              focusable="false" alt="Pen" />
+                           <span class="visually-hidden">Pen</span>
+                          </button>
+                        </div>
+                       <div class="buttons_grid_item" >
+                          <button class="icon_button"
+                             onclick="ui_option_click('randomize')">
+                           <img src="media/icons/rotate-ccw.svg" 
+                              aria-hidden="true" 
+                              focusable="false" alt="Randomize" />
+                           <span class="visually-hidden">Randomize</span>
+                          </button>
+                        </div>
+                    </div>
+                 </div>
+                  
+                  <div id="ui_menu" >
+                     <div id="ui_menu_header">
+                        <span id="ui_menu_title"></span>
+                        <button onclick="hide_ui_menu()" class="icon_button">
+                           <img src="media/icons/x.svg" />
+                        </button>
+                     </div>
+                     <div id="ui_menu_content"></div>
+                  </div>
+              </div>
+              <div id="canvas_div" class="max_size" >
+                 <canvas id="pixi_canvas" title="Cellular Automata Simulation"
+                   role="img" aria-label="Cellular Automata Simulation" />
+                 
+              </div>
+
+           </div>
+        </main>
+
+        <template id="pen_menu_template">
+           <form>
+              <fieldset>
+                 <legend>Pen Settings</legend>
+                 <label for="pen_mode_select">Pen Mode:</label>
+                 <select name="pen_mode_select" id="pen_mode_select">
+                 </select>
+                 <div>
+                    <label for="pen_size">Pen Size:</label>
+                    <input type="range" min="1" max="100" id="pen_size">
+                  </div>
+              </fieldset>
+           </form>
+        </template>
+
+        <template id="automaton_menu_template">
+           <form>
+              <fieldset>
+                 <legend>Automaton:</legend>
+                 <label for="automaton_select">Rule:</label>
+                 <select name="automaton_select" id="automaton_select">
+                 </select>
+                 <div id="automaton_params" ></div>
+              </fieldset>
+              <fieldset>
+                 <legend>Simulation Size:</legend>
+                 <label for="sim_width">Width:</label>
+                 <input type="number" id="sim_width" name="sim_width"
+                        min="64" max="1024" >
+                 <label for="sim_height">Height:</label>
+                 <input type="number" id="sim_height" name="sim_height"
+                        min="64" max="1024">
+              </fieldset>
+
+              <button type="button" id="automaton_apply_button" >
+                  Apply
+              </button>
+           </form>
+        </template>
+
+        <template id="int_set_checkbox_template">
+           <label class="checkbox" >
+              <input type="checkbox" >
+           </label>
+        </template>
+
+    </body>
+
+</html>
+
+
+

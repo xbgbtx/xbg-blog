@@ -1,0 +1,46 @@
+:root
+{
+   --ui_white: #F0EEEE;
+   --ui_purple: #7766cc;
+   --ui_grey: #ecefee;
+}
+
+#ui_menu
+{
+   background: var(--ui_grey);
+   grid-column: 2 / 3;
+   font-family: arial;
+   max-width: 600px;
+}
+
+#ui_menu_header
+{
+   background: var(--ui_purple);
+   color: var(--ui_white);
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   font-size: 2em;
+   font-weight: bold;
+   font-family: data-control;
+}
+
+#ui_menu_header span
+{
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#ui_menu_content
+{
+   padding : 5px;
+   overflow: scroll;
+   max-height: 80vh;
+   overflow-x: hidden;
+}
+
+#ui_menu_content form
+{
+   display : inline-block;
+}
+

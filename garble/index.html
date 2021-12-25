@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="user-scalable=no"/>
+
+        <meta name="HandheldFriendly" content="true" />
+
+        <link rel="stylesheet" type="text/css" href="style.css" />
+
+        <script type="text/javascript" src="garble.js" ></script>
+
+        <title>Garble</title>
+
+    </head>
+
+    <body onload="page_loaded()" >
+
+        <main>
+           <div id="root_div">
+              <h1>Garble</h1>
+
+              <div id="input_div">
+                 <label for="text_in">Your message:</label><br>
+                 <textarea id="text_in" rows="6" cols="78"></textarea><br><br>
+                 <button onclick="do_garble_click()">Garble</button>
+              </div>
+              <div id="slowdown_div">
+                 Garples has been shaking a lot lately. 
+                 Wait a minute and take the shipment.
+              </div>
+              <div id="garble_output_div">
+              </div>
+              <div id="results_output_div">
+                 <label for="results_original_div">Original:</label>
+                 <div id="results_original_div" class="results_display"></div>
+                 <label for="results_garbled_div">Garbled:</label>
+                 <div id="results_garbled_div" class="results_display"></div>
+                 <div id="results_controls_div" >
+                    <button onclick="do_another_click()">Do Another</button>
+                    <button onclick="garble_again_click()">Garble Again</button>
+                    <button onclick="do_copy_click()">Copy To Clipboard</button>
+                 </div>
+              </div>
+              <div id="error_div">
+                 <p>Something went wrong.</p>
+                 <button onclick="do_another_click()">Try again</button>
+              </div>
+           </div>
+        </main>
+
+    </body>
+
+</html>
+
+

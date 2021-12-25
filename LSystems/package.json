@@ -1,0 +1,21 @@
+{
+  "name": "l-systems",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xbgbtx/L-Systems.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

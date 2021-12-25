@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="HandheldFriendly" content="true" />
+
+        <link rel="stylesheet" type="text/css" href="css/canvas_position.css" />
+        <link rel="stylesheet" type="text/css" href="css/ui_overlay.css" />
+        <link rel="stylesheet" type="text/css" href="css/ui_overlay_menu.css" />
+        <link rel="stylesheet" type="text/css" href="css/visually_hidden.css" />
+
+        <script type="text/javascript" src="lib/main.js" ></script>
+        <script type="text/javascript" src="lib/lsystem.js" ></script>
+        <script type="text/javascript" src="lib/lsystem_app.js" ></script>
+        <script type="text/javascript" src="lib/lsystem_dom.js" ></script>
+        <script type="text/javascript" src="lib/lsystem_presets.js" ></script>
+        <script type="text/javascript" src="lib/lsystem_renderer.js" ></script>
+        <script type="text/javascript" src="lib/lsystem_render_data.js" ></script>
+        <script type="text/javascript" src="lib/lsystem_draw_commands.js" ></script>
+
+        <script type="text/javascript" src="lib/pixi_app.js" ></script>
+        <script type="text/javascript" src="lib/pixi_draw.js" ></script>
+
+        <script type="text/javascript" src="lib/external/pixi.min.js" ></script>
+        <script type="text/javascript" src="lib/external/pixi-plugin/viewport.min.js" ></script>
+
+        <title>Pixi Project</title>
+
+    </head>
+
+    <body onload="page_loaded()" >
+        <main>
+           <div id="root_div" class="max_size">
+              <div id="ui_overlay" >
+                 <div id="ui_overlay_button_column" >
+                    <div id="ui_buttons_grid">
+                       <div class="buttons_grid_item" >
+                          <button class="icon_button"
+                             onclick="ui_button_click('lsystem')">
+                           <img src="icons/menu.svg" 
+                              aria-hidden="true" 
+                              focusable="false" alt="Automaton" />
+                           <span class="visually-hidden">Automaton</span>
+                          </button>
+                        </div>
+                    </div>
+                 </div>
+                  <div id="ui_menu" >
+                     <div id="ui_menu_header">
+                        <span id="ui_menu_title"></span>
+                        <button onclick="ui_button_click('ui_menu_close')" 
+                           class="icon_button">
+                           <img src="icons/x.svg" />
+                        </button>
+                     </div>
+                     <div id="ui_menu_content"></div>
+                  </div>
+              </div>
+
+              <div id="canvas_div" class="max_size"  >
+                 <canvas id="pixi_canvas" title="L-System drawing canvas"
+                   role="img" aria-label="L-System drawing canvas" />
+              </div>
+
+           </div>
+        </main>
+
+        <template id="lsystem_menu_template">
+           <form>
+              <fieldset>
+                 <legend>Select Preset</legend>
+                 <select name="select_presets" id="select_presets" >
+                    <option value="cantor">Cantor Set</option>
+                    <option value="dragon">Dragon Curve</option>
+                    <option value="sierpinski">Sierpinski Triangle</option>
+                 </select>
+              </fieldset>
+
+              <button type="button" 
+                 onclick="ui_button_click('render_preset')">
+                 Render L-System
+              </button>
+
+           </form>
+        </template>
+    </body>
+
+</html>

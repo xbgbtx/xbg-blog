@@ -14,8 +14,7 @@
       
       <guid>https://xbgbtx.github.io/xbg-blog/posts/l-systems/</guid>
       <description>An L-System is a string rewriting process that can generate many interesting fractals.
- L-SystemsL-Systems
-  I have implemented a system for rendering L-Systems using the PixiJS graphics library.
+L-Systems  I have implemented a system for rendering L-Systems using the PixiJS graphics library.
 Try it in your browser!
 View the Source Code
 Ideas for future improvements:  Implement GUI for building custom L-Systems Add stack to the draw context in order to support more types of L-System.  </description>
@@ -28,12 +27,10 @@ Ideas for future improvements:  Implement GUI for building custom L-Systems Add 
       
       <guid>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata-v2/</guid>
       <description>A WebGL cellular automata runtime.
- Cellular AutomataCellular Automata
-  Cellular Automata Try it in your browser!
+Cellular Automata  Cellular Automata Try it in your browser!
 View the Source Code
 Cellular automata are a captivating example of how complexity can emerge from simple rules.
- Cellular AutomataCellular Automata
-  Version 2 Version 2 brings an improved user interface. The simulation is displayed full screen and a menu system floats on top.
+Cellular Automata  Version 2 Version 2 brings an improved user interface. The simulation is displayed full screen and a menu system floats on top.
 I added a new rule called &amp;lsquo;Life Like&amp;rsquo; that allows for the conditions for life and dead in Conway&amp;rsquo;s Game of Life to be modified.</description>
     </item>
     
@@ -44,8 +41,7 @@ I added a new rule called &amp;lsquo;Life Like&amp;rsquo; that allows for the co
       
       <guid>https://xbgbtx.github.io/xbg-blog/posts/artist-map/</guid>
       <description>This interactive map shows the birth and formation location of nearly sixty thousand musicians and musical ensembles.
- Artist MapArtist Map
-  Try it in your browser!
+Artist Map  Try it in your browser!
 View the Source Code
 Leaflet JS Map The map data is displayed using Leaflet JS - a flexible front end for map data. The map tiles are sourced from Open Street Map.
 WikiData Data is queried from WikiData a service that enables SPARQL queries on a database generated from the article text of Wikipedia articles.</description>
@@ -58,12 +54,10 @@ WikiData Data is queried from WikiData a service that enables SPARQL queries on 
       
       <guid>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata/</guid>
       <description>A WebGL cellular automata runtime.
- Cellular AutomataCellular Automata
-  Cellular Automata Try it in your browser!
+Cellular Automata  Cellular Automata Try it in your browser!
 View the Source Code
 Cellular automata are a captivating example of how complexity can emerge from simple rules.
- Cellular AutomataCellular Automata
-  GPU Acceleration Programming a cellular automata is fairly straightforward. The system simply needs to iterate through a grid and process the states of the cells.
+Cellular Automata  GPU Acceleration Programming a cellular automata is fairly straightforward. The system simply needs to iterate through a grid and process the states of the cells.
 In order to make the simulation run in real time I decided to implement the system using WebGL fragment shaders.</description>
     </item>
     

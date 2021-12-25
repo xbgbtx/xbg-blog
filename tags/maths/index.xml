@@ -14,11 +14,10 @@
       
       <guid>https://xbgbtx.github.io/xbg-blog/posts/fib-mod/</guid>
       <description>Using modulo to create a looping pattern from number sequences such as the Fibonacci numbers can create a cool structure.
- FibmodFibmod
-  I learned about this idea here:
+Fibmod  I learned about this idea here:
   The shape is made by drawing a line and then turning 90 degrees either left or right depending on whether the result of a modulo fib number is odd or even.
- FibmodFibmod
-  The code can be found here:</description>
+Fibmod  The code can be found here:
+fibmod.cfdg</description>
     </item>
     
   </channel>
