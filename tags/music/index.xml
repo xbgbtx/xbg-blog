@@ -14,7 +14,8 @@
       
       <guid>https://xbgbtx.github.io/xbg-blog/posts/artist-map/</guid>
       <description>This interactive map shows the birth and formation location of nearly sixty thousand musicians and musical ensembles.
-Artist Map  Try it in your browser!
+ Artist MapArtist Map
+  Try it in your browser!
 View the Source Code
 Leaflet JS Map The map data is displayed using Leaflet JS - a flexible front end for map data. The map tiles are sourced from Open Street Map.
 WikiData Data is queried from WikiData a service that enables SPARQL queries on a database generated from the article text of Wikipedia articles.</description>
