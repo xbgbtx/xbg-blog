@@ -20,4 +20,6 @@ The result is sometimes amusing and often very garbled.
 
 {{< figure src="/xbg-blog/img/garble.png" title="Garble" caption="Garbleo and Juliet" position="center">}}
 
-[Try Garble in your browser now!](https://xbgbtx.github.io/xbg-blog/garble/)
+[View the Source Code](https://github.com/xbgbtx/garble/)
+
+[Try Garble in your browser now!](https://xbgbtx.github.io/garble/)
