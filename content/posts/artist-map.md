@@ -13,7 +13,7 @@ sixty thousand musicians and musical ensembles.
 
 {{< figure src="/xbg-blog/img/ArtistMap.png" title="Artist Map" caption="Artist Map" position="center">}}
 
-[Try it in your browser!](https://xbgbtx.github.io/xbg-blog/ArtistMap/)
+[Try it in your browser!](https://xbgbtx.github.io/ArtistMap/)
 
 [View the Source Code](https://github.com/xbgbtx/ArtistMap)
 

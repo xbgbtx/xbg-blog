@@ -8,6 +8,7 @@ tags = ["programming", "language"]
 keywords = ["programming", "language"]
 description = "Garble text by running it through a wold tour of language translation."
 showFullContent = false
+draft = true
 +++
 
 Garble text by running it through a wold tour of language translation.
