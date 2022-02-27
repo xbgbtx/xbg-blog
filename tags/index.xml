@@ -6,20 +6,38 @@
     <description>Recent content in Tags on xbgbtx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Aug 2021 20:21:51 +0100</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Feb 2022 14:22:27 +0000</lastBuildDate><atom:link href="https://xbgbtx.github.io/xbg-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>art</title>
-      <link>https://xbgbtx.github.io/xbg-blog/tags/art/</link>
-      <pubDate>Fri, 13 Aug 2021 20:21:51 +0100</pubDate>
+      <title>cards</title>
+      <link>https://xbgbtx.github.io/xbg-blog/tags/cards/</link>
+      <pubDate>Sun, 27 Feb 2022 14:22:27 +0000</pubDate>
       
-      <guid>https://xbgbtx.github.io/xbg-blog/tags/art/</guid>
+      <guid>https://xbgbtx.github.io/xbg-blog/tags/cards/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://xbgbtx.github.io/xbg-blog/tags/javascript/</link>
+      <pubDate>Sun, 27 Feb 2022 14:22:27 +0000</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lit</title>
+      <link>https://xbgbtx.github.io/xbg-blog/tags/lit/</link>
+      <pubDate>Sun, 27 Feb 2022 14:22:27 +0000</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/tags/lit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
       <link>https://xbgbtx.github.io/xbg-blog/tags/programming/</link>
-      <pubDate>Fri, 13 Aug 2021 20:21:51 +0100</pubDate>
+      <pubDate>Sun, 27 Feb 2022 14:22:27 +0000</pubDate>
       
       <guid>https://xbgbtx.github.io/xbg-blog/tags/programming/</guid>
       <description></description>
@@ -28,9 +46,18 @@
     <item>
       <title>web</title>
       <link>https://xbgbtx.github.io/xbg-blog/tags/web/</link>
-      <pubDate>Fri, 13 Aug 2021 20:21:51 +0100</pubDate>
+      <pubDate>Sun, 27 Feb 2022 14:22:27 +0000</pubDate>
       
       <guid>https://xbgbtx.github.io/xbg-blog/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>art</title>
+      <link>https://xbgbtx.github.io/xbg-blog/tags/art/</link>
+      <pubDate>Fri, 13 Aug 2021 20:21:51 +0100</pubDate>
+      
+      <guid>https://xbgbtx.github.io/xbg-blog/tags/art/</guid>
       <description></description>
     </item>
     

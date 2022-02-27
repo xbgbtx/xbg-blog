@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://xbgbtx.github.io/xbg-blog/tags/cards/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
+    <loc>https://xbgbtx.github.io/xbg-blog/tags/javascript/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
+    <loc>https://xbgbtx.github.io/xbg-blog/tags/lit/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
+    <loc>https://xbgbtx.github.io/xbg-blog/posts/memory-cats/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
+    <loc>https://xbgbtx.github.io/xbg-blog/posts/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
+    <loc>https://xbgbtx.github.io/xbg-blog/tags/programming/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
+    <loc>https://xbgbtx.github.io/xbg-blog/tags/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
+    <loc>https://xbgbtx.github.io/xbg-blog/tags/web/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
+    <loc>https://xbgbtx.github.io/xbg-blog/</loc>
+    <lastmod>2022-02-27T14:22:27+00:00</lastmod>
+  </url><url>
     <loc>https://xbgbtx.github.io/xbg-blog/tags/art/</loc>
     <lastmod>2021-08-13T20:21:51+01:00</lastmod>
   </url><url>
     <loc>https://xbgbtx.github.io/xbg-blog/posts/l-systems/</loc>
-    <lastmod>2021-08-13T20:21:51+01:00</lastmod>
-  </url><url>
-    <loc>https://xbgbtx.github.io/xbg-blog/posts/</loc>
-    <lastmod>2021-08-13T20:21:51+01:00</lastmod>
-  </url><url>
-    <loc>https://xbgbtx.github.io/xbg-blog/tags/programming/</loc>
-    <lastmod>2021-08-13T20:21:51+01:00</lastmod>
-  </url><url>
-    <loc>https://xbgbtx.github.io/xbg-blog/tags/</loc>
-    <lastmod>2021-08-13T20:21:51+01:00</lastmod>
-  </url><url>
-    <loc>https://xbgbtx.github.io/xbg-blog/tags/web/</loc>
-    <lastmod>2021-08-13T20:21:51+01:00</lastmod>
-  </url><url>
-    <loc>https://xbgbtx.github.io/xbg-blog/</loc>
     <lastmod>2021-08-13T20:21:51+01:00</lastmod>
   </url><url>
     <loc>https://xbgbtx.github.io/xbg-blog/posts/cellular-automata-v2/</loc>
